@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Porsche 911 Valuator</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <h1>911 Valuator</h1>
+    <p class="tagline">AI market valuation for your Porsche 911 — powered by Claude + MCP</p>
+  </header>
+
+  <main>
+    <form id="valuation-form">
+      <section class="card">
+        <h2>1 · Your car</h2>
+        <div class="grid">
+          <label>Model year
+            <input type="number" name="year" min="1964" max="2027" value="2011" required />
+          </label>
+          <label>Trim
+            <input type="text" name="trim" placeholder="e.g. Carrera S, GT3, Turbo" required />
+          </label>
+          <label>Mileage
+            <input type="number" name="mileage" min="0" max="500000" placeholder="42000" required />
+          </label>
+          <label>Transmission
+            <select name="transmission">
+              <option>Manual</option>
+              <option>PDK</option>
+              <option>Tiptronic</option>
+            </select>
+          </label>
+          <label>Exterior color
+            <input type="text" name="exterior_color" placeholder="e.g. GT Silver, PTS Oak Green" />
+          </label>
+          <label>Region
+            <input type="text" name="region" value="United States" />
+          </label>
+        </div>
+        <label>Notable options
+          <input type="text" name="options" placeholder="Sport Chrono, PCCB, front-axle lift, buckets…" />
+        </label>
+        <label>History notes
+          <textarea name="history" rows="2" placeholder="One owner, full Porsche dealer service history, no accidents, IMS retrofit 2019…"></textarea>
+        </label>
+      </section>
+
+      <section class="card">
+        <h2>2 · Photos <span class="muted">(optional, up to 5 — analyzed in memory, never stored)</span></h2>
+        <div id="dropzone">
+          <input type="file" id="photo-input" accept="image/jpeg,image/png,image/webp" multiple hidden />
+          <p>Drag &amp; drop photos here or <button type="button" id="browse-btn">browse</button></p>
+        </div>
+        <div id="thumbs"></div>
+      </section>
+
+      <button type="submit" id="submit-btn">Value my 911</button>
+    </form>
+
+    <section id="status" class="card hidden">
+      <div class="spinner"></div>
+      <p id="status-text">Analyzing your 911 — checking generation data, photos, and live market comps…</p>
+    </section>
+
+    <section id="report" class="card hidden"></section>
+  </main>
+
+  <footer>
+    <p>Estimates are informational, not an offer or appraisal. Built with the Claude API &amp; Model Context Protocol.</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
