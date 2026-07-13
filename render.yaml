@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: porsche-911-valuator
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false # prompted at deploy time, never stored in the repo
+      - key: RATE_LIMIT
+        value: 5/minute;30/day

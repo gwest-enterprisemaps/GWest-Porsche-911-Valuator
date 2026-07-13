@@ -1,5 +1,7 @@
 # Porsche 911 Valuator
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/gwest-enterprisemaps/GWest-Porsche-911-Valuator)
+
 An AI-powered market valuation app for Porsche 911s. Enter your car's specs, mileage, and history, drop in a few photos, and get a structured valuation report backed by generation-specific domain knowledge and live market comps.
 
 Built to showcase the **Claude API** and the **Model Context Protocol (MCP)** end to end: the app is simultaneously an MCP *server* (Porsche domain tools) and an MCP *client* (the Claude agent that consumes them).
@@ -91,7 +93,9 @@ Open http://localhost:8000. The MCP server is spawned automatically as a subproc
 
 ## Deploy to a simple web server
 
-Any box that runs Python works:
+**One-click:** hit the "Deploy to Render" button above — Render reads `render.yaml`, builds the Dockerfile, prompts for your `ANTHROPIC_API_KEY`, and gives you a public HTTPS URL. Every push to `main` auto-redeploys.
+
+Or any box that runs Python:
 
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000
