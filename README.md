@@ -54,6 +54,10 @@ flowchart LR
 | **Prompt caching** | `app/agent.py` | `cache_control: ephemeral` on the system prompt and tool definitions cuts cost/latency across loop turns |
 | **System prompts** | `app/agent.py` | A methodology prompt that sequences MCP grounding → photo analysis → live comps → reconciliation |
 
+## Study guide
+
+New to the codebase? Work through [docs/STUDY_GUIDE.md](docs/STUDY_GUIDE.md) — a module-by-module workshop covering the architecture, MCP, the Claude agentic loop, and Render deployment, with hands-on activities.
+
 ## Project layout
 
 ```
